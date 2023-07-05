@@ -1,62 +1,23 @@
 import './App.css'
-import { db } from "./firebase"
+import Header from './component/Header'
+
+import { db } from "./firebase";
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import List from './page/List'
+import Write from './page/Write'
+import Edit from './page/Edit'
 
 export default function App() {
   console.log(db)
 
-  return(
-    <div className='App'>
-      <header>
-        <h1>📖 노트</h1>
-        <button>글쓰기</button>
-      </header>
-
-      <ul className="list">
-        <li>
-          <h2>파이어스토어</h2>
-          <p>안녕하세요</p>
-          <div className="extra">
-            <p>2023-12-30</p>
-            <div className="btns">
-              <span>수정</span>
-              <span>삭제</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <h2>파이어스토어</h2>
-          <p>안녕하세요</p>
-          <div className="extra">
-            <p>2023-12-30</p>
-            <div className="btns">
-              <span>수정</span>
-              <span>삭제</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <h2>파이어스토어</h2>
-          <p>안녕하세요</p>
-          <div className="extra">
-            <p>2023-12-30</p>
-            <div className="btns">
-              <span>수정</span>
-              <span>삭제</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <h2>파이어스토어</h2>
-          <p>안녕하세요</p>
-          <div className="extra">
-            <p>2023-12-30</p>
-            <div className="btns">
-              <span>수정</span>
-              <span>삭제</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<List />}/>
+        <Route path='/write' element={<Write />}/>
+        <Route path='/edit' element={<Edit />}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
