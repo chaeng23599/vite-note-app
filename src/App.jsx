@@ -12,12 +12,14 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    <div className='App'>
       <Header />
       <Routes>
         <Route path='/' element={<List />}/>
         <Route path='/write' element={<Write />}/>
         <Route path='/edit' element={<Edit />}/>
       </Routes>
+    </div>
     </BrowserRouter>
   )
 }
